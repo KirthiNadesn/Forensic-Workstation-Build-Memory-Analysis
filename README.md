@@ -49,7 +49,7 @@ mkdir C:\Forensic_Tools
   - Open Windows Security → Manage settings → Add an exclusion.
   - Add both C:\Forensic_Cases and C:\Forensic_Tools to prevent automatic file removal during investigations.
     
-## **🔬 Installing Forensic Tools**
+## **Installing Forensic Tools**
 ### **3️⃣ Updating System and Installing Dependencies**
 Run the following commands inside Ubuntu (WSL):
 
@@ -122,7 +122,7 @@ vol -f /path/to/memory/dump/memory_dump.mem windows.psscan.PsScan
 ```
 Each of these commands extracts important forensic artifacts that help in identifying suspicious activity.
 
-## ** Memory Analysis using OleTools**
+## **Memory Analysis using OleTools**
 Before running OleTools, we extract memory dump details:
 
 1. Extract files from the memory dump:
@@ -145,7 +145,7 @@ oleid /path/to/extracted/files/dumpfiles.txt
 ```
 This helps identify hidden macros, embedded scripts, or other malicious artifacts.
 
-## **🛡️ Memory Analysis using Cyber Triage**
+## **Memory Analysis using Cyber Triage**
 Cyber Triage is used to scan the captured memory dump and detect threats.
 
 ### **8️⃣ Performing Memory Analysis**
