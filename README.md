@@ -99,25 +99,26 @@ To capture the memory of the Windows 10 VM,
 Volatility is used to extract forensic information from the memory dump.
 
 ### **7️⃣ Running Volatility Commands**
+Replace /path/to/memory/dump/ with the actual location where the memory dump is stored,
 - Display running processes in a hierarchical format:
 ```bash
 
-vol -f memdump.mem windows.pstree.PsTree
+vol -f /path/to/memory/dump/memory_dump.mem windows.pstree.PsTree
 ```
 - Check active network connections at the time of capture:
 ```bash
 
-vol -f memdump.mem windows.netstat.Netstat
+vol -f /path/to/memory/dump/memory_dump.mem windows.netstat.Netstat
 ```
 - Search for suspicious or hidden programs (possible malware):
 ```bash
 
-vol -f memdump.mem windows.malfind.MalFind
+vol -f /path/to/memory/dump/memory_dump.mem windows.malfind.MalFind
 ```
 - Scan memory for all running processes, including hidden ones:
 ```bash
 
-vol -f memdump.mem windows.psscan.PsScan
+vol -f /path/to/memory/dump/memory_dump.mem windows.psscan.PsScan
 ```
 Each of these commands extracts important forensic artifacts that help in identifying suspicious activity.
 
@@ -127,19 +128,20 @@ Before running OleTools, we extract memory dump details:
 1. Extract files from the memory dump:
 ```bash
 
-vol -f memdump.mem windows.dumpfiles.dumpFiles > output_directory/dumpfiles.txt
+vol -f /path/to/memory/dump/memory_dump.mem windows.dumpfiles.dumpFiles > /path/to/extracted/files/dumpfiles.txt
 ```
 2. Analyze extracted memory dump files with olevba:
 ```bash
 
-olevba /home/keerthi/output_directory/dumpfiles.txt
+olevba /path/to/extracted/files/dumpfiles.txt
 ```
 This checks for potentially harmful embedded macros or scripts.
 
 3. Scan the extracted data with oleid to detect suspicious objects:
 ```bash
 
-oleid /home/keerthi/output_directory/dumpfiles.txt
+oleid /path/to/extracted/files/dumpfiles.txt
+
 ```
 This helps identify hidden macros, embedded scripts, or other malicious artifacts.
 
@@ -148,16 +150,17 @@ Cyber Triage is used to scan the captured memory dump and detect threats.
 
 ### **8️⃣ Performing Memory Analysis**
 1. Open Cyber Triage.
-2. Select Memory Image and choose memdump.mem.
+2. Select Memory Image and choose /path/to/memory/dump/memory_dump.mem.
 3. Provide necessary details such as Host display name.
 4. Choose Custom Scan and start analysis.
 Once the scan completes, Cyber Triage provides a detailed report highlighting potential malware, suspicious activities, and process anomalies.
 
-🎯 Conclusion
+## **🎯 Conclusion**
 This project successfully demonstrates the process of,
 
 - Setting up a forensic workstation using Windows 10 VM and Ubuntu (WSL).
 - Installing necessary forensic tools such as Volatility, Cyber Triage, and OleTools.
 - Capturing and analyzing a memory dump using industry-standard forensic techniques.
 - Extracting valuable forensic artifacts that can help in identifying malware and suspicious activities.
+  
 By following these steps, security professionals can investigate incidents, detect intrusions, and analyze system behavior using real forensic tools.
