@@ -40,14 +40,14 @@ Add-AppxPackage C:\Users\YourUser\Desktop\UbuntuonWindows\Ubuntu_2004.2021.825.0
 1. Create dedicated directories for forensic work inside **C:**:
 ```powershell
 
-mkdir C:\Cases
-mkdir C:\Tools
+mkdir C:\Forensic_Cases
+mkdir C:\Forensic_Tools
 ```
 2. Set the system time zone to UTC.
 3. Enable Show Hidden Files in File Explorer.
 4. Exclude these forensic folders from Windows Defender:
   - Open Windows Security → Manage settings → Add an exclusion.
-  - Add both C:\Cases and C:\Tools to prevent automatic file removal during investigations.
+  - Add both C:\Forensic_Cases and C:\Forensic_Tools to prevent automatic file removal during investigations.
     
 ## **🔬 Installing Forensic Tools**
 ### **3️⃣ Updating System and Installing Dependencies**
@@ -61,7 +61,7 @@ sudo apt install python3-pip -y
 ### **4️⃣ Installing Volatility 3**
 ```bash
 
-pip3 install volatility3 capstone
+pip3 install volatility3
 ```
 - Verify installation:
 
@@ -88,11 +88,11 @@ olevba --help
 ```
 This confirms that olevba and related tools are available for analysis.
 
-## **Capturing Memory Dump**
-To capture the memory of the Windows 10 VM:
+### **Capturing Memory Dump**
+To capture the memory of the Windows 10 VM,
 
 1. Open AccessData FTK Imager.
-2. Select Capture Memory and save the file as memdump.mem.
+2. Select Capture Memory and save the file as memory_dump.mem.
 3. Verify completion.
    
 ## **Memory Analysis using Volatility**
